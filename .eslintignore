@@ -1,0 +1,6 @@
+/*.js
+/api
+**/*.test.js
+**/node_modules
+**/.nuxt
+**/dist
