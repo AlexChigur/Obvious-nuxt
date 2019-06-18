@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import AdvantageBlock from './AdvantageBlock'
-import HomeSteps from '@/components/HomeSteps'
+import AdvantageBlock from './Home/AdvantageBlock'
+import HomeSteps from '@/components/Home/HomeSteps/HomeSteps'
 import OurClients from '@/components/OurClients'
 export default {
   name: 'HomeIndex',

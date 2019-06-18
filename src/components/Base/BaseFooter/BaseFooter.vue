@@ -31,23 +31,23 @@
 </template>
 
 <script>
-    import SendingForm from "@/components/Base/BaseFooter/SendingForm";
-    import FooterContacts from "@/components/Base/BaseFooter/FooterContacts";
-    import SuccessfullySent from "@/components/Base/BaseFooter/SuccessfullySent";
-    export default {
-      data () {
-        return {
-          sendMessage: false
-        }
-      },
-      name: "BaseFooter",
-      components: {SuccessfullySent, FooterContacts, SendingForm},
-      methods: {
-        successSend () {
-          this.sendMessage = !this.sendMessage
-        }
-      }
+import SendingForm from '@/components/Base/BaseFooter/SendingForm'
+import FooterContacts from '@/components/Base/BaseFooter/FooterContacts'
+import SuccessfullySent from '@/components/Base/BaseFooter/SuccessfullySent'
+export default {
+  name: 'BaseFooter',
+  components: { SuccessfullySent, FooterContacts, SendingForm },
+  data () {
+    return {
+      sendMessage: false
     }
+  },
+  methods: {
+    successSend () {
+      this.sendMessage = !this.sendMessage
+    }
+  }
+}
 </script>
 
 <style lang="sass" scoped>
@@ -90,7 +90,5 @@
       font-weight: bold
     &__year
       color: white
-
-
 
 </style>
