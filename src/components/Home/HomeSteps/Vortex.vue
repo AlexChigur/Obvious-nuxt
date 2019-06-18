@@ -7,6 +7,8 @@
         :item="item"
         :index="index"
         :active-index="activeIndex"
+        @setStep="setStep"
+        @previousStep="previousStep"
       )
 
 </template>
@@ -27,6 +29,14 @@ export default {
         return []
       }
     }
+  },
+  methods: {
+    setStep (activeIndex) {
+      this.$emit('setStep', activeIndex)
+    },
+    previousStep (activeIndex) {
+      this.$emit('previousStep', activeIndex)
+    }
   }
 }
 </script>
@@ -42,17 +52,17 @@ export default {
       .sphere
         position: absolute
         &--1
-          bottom: 106px
-          left: 150px
+          bottom: 101px
+          left: 151px
         &--2
           flex-direction: column
-          left: 78px
-          bottom: 1px
+          left: 94px
+          bottom: -7px
           .text
             left: -60px
             top: 30px
         &--3
-          bottom: 250px
-          left: 30px
+          bottom: 248px
+          left: 33px
 
 </style>

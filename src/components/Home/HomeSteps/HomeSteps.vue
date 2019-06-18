@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .home-steps
+  .home-steps.g-container
     .home-title
       | Nous vous accompagnons lors des 3 étapes clés :
     .block-steps
@@ -17,23 +17,25 @@
         vortex(
           :activeIndex="activeIndex"
           :nameSteps="nameSteps"
+          @setStep="setStep"
+          @previousStep="previousStep"
           )
-    .block-finance
+    .block-finance.g-container
       .block-finance__logo
         img(src="~/assets/picture/plus.svg")
       .block-finance__title {{finance.title}}
       .block-finance__content {{finance.content}}
-        .block-finance__content__list(v-for="item in finance.list")
-          .block-finance__content__list__bullet
-            img(src='~/assets/picture/bullet.svg')
-          .block-finance__content__list__text {{item}}
+      .block-finance__content__list(v-for="item in finance.list")
+        .block-finance__content__list__bullet
+          img(src='~/assets/picture/bullet.svg')
+        .block-finance__content__list__text {{item}}
 
 </template>
 
 <script>
 
-import ItemStep from '@/components/ItemStep'
-import Vortex from '@/components/Vortex'
+import ItemStep from '@/components/Home/HomeSteps/ItemStep'
+import Vortex from '@/components/Home/HomeSteps/Vortex'
 export default {
   name: 'HomeSteps',
   components: { Vortex, ItemStep },
@@ -99,77 +101,92 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  @import '../../node_modules/bootstrap/scss/functions'
-  @import '../../node_modules/bootstrap/scss/variables'
-  @import '../../node_modules/bootstrap/scss/mixins/breakpoints'
-  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&subset=cyrillic,cyrillic-ext,latin-ext,vietnamese')
-  $font: Montserrat, Helvetica, sans-serif
+@import '../../../../node_modules/bootstrap/scss/functions'
+@import '../../../../node_modules/bootstrap/scss/variables'
+@import '../../../../node_modules/bootstrap/scss/mixins/breakpoints'
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&subset=cyrillic,cyrillic-ext,latin-ext,vietnamese')
+$font: Montserrat, Helvetica, sans-serif
 
-  .block-steps-resize
-    font-size: 20px
-    color: white
+.block-steps-resize
+  font-size: 20px
+  color: white
 
-  .home-steps
-    margin: 0 192px 0 192px
+.home-title
+  text-align: center
+  font-family: $font
+  font-size: 32px
+  line-height: 1.41
+  color: #ffffff
+  margin-top: 88px
+  +media-breakpoint-down(xs)
+    font-size: 24px
 
-  .home-title
-    text-align: center
-    font-family: $font
-    font-size: 32px
-    line-height: 1.41
-    color: #ffffff
-    margin-top: 88px
-    +media-breakpoint-down(sm)
-      width: 266px
-
-  .block-steps
-    display: flex
-    justify-content: space-between
-    +media-breakpoint-down(md)
-      flex-direction: column
-      align-items: center
-    &__vortex
-      margin: 80px 0 0 0
-      +media-breakpoint-down(sm)
-        display: none
-
-  .block-finance
-    margin: 0 0 208px 0
-    display: flex
+.block-steps
+  display: flex
+  +media-breakpoint-down(md)
     flex-direction: column
-    font-family: $font
-    font-size: 16px
-    width: 436px
-    color: white
-    line-height: 1.5
+    align-items: center
+  &__vortex
+    margin: 80px 0 0 156px
+    +media-breakpoint-down(md)
+      margin: 100px
     +media-breakpoint-down(sm)
-    &__logo
-      margin-top: 116px
-    &__title
-      font-weight: bold
-      color: #009fc1
-      line-height: 1.63
-      margin-top: 24px
+      display: none
+
+.block-finance
+  display: flex
+  flex-direction: column
+  font-family: $font
+  font-size: 16px
+  color: white
+  line-height: 1.5
+  margin-bottom: 150px
+  +media-breakpoint-down(md)
+    align-items: center
+    justify-items: center
+    width: 272px
+  +media-breakpoint-down(xs)
+    text-align: center
+  &__logo
+    margin-top: 116px
+
+  &__title
+    font-weight: bold
+    color: #009fc1
+    line-height: 1.63
+    margin-top: 24px
+    +media-breakpoint-down(lg)
+      width: 436px
+      text-align: left
     +media-breakpoint-down(sm)
-      width: 272px
       text-align: center
-    &__content
-      margin-top: 16px
-      color: white
-      font-weight: normal
-      &__list
-        display: flex
-        flex-direction: row
-        margin-top: 16px
-        +media-breakpoint-down(sm)
-          justify-content: flex-start
-        &__bullet
-          width: 24px
-          height: 24px
-        &__text
-          margin-left: 12px
-        +media-breakpoint-down(sm)
-          text-align: left
-          width: 247px
+      width: 272px
+
+  &__content
+    width: 436px
+    margin: 4px 0 16px 0
+    color: white
+    font-weight: normal
+    +media-breakpoint-down(sm)
+      text-align: center
+      width: 272px
+      margin: 16px 0 24px 0
+
+    &__list
+      width: 416px
+      display: flex
+      flex-direction: row
+      margin-bottom: 12px
+      +media-breakpoint-down(sm)
+        justify-content: flex-start
+        margin-right: 4px
+        width: 272px
+
+      &__bullet
+        width: 24px
+        height: 24px
+        transform: translateX(-8px)
+      +media-breakpoint-down(sm)
+        text-align: left
 
 </style>

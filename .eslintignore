@@ -1,5 +1,6 @@
 /*.js
 /api
+/src/helpers
 **/*.test.js
 **/node_modules
 **/.nuxt

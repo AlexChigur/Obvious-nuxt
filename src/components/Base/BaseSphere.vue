@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    .sphere(:class="[{'active': isActive(index)},`sphere--${index + 1}`]")
+    .sphere(:class="[{'active': isActive(index)},`sphere--${index + 1}`]" @click="setStep(activeIndex + 1); previousStep")
       .number {{index + 1}}
         .text {{item}}
 </template>
@@ -27,6 +27,12 @@ export default {
       return this.activeIndex !== null
         ? index <= this.activeIndex
         : true
+    },
+    setStep (activeIndex) {
+      this.$emit('setStep', activeIndex)
+    },
+    previousStep () {
+      if (this.index <= this.activeIndex) { return this.activeIndex - 1 }
     }
   }
 }
@@ -46,25 +52,13 @@ export default {
   border-radius: 100px
   background: linear-gradient(143deg, #383c3d, #9ea4a5)
   font-size: 12px
-  font-family: $noto-sans
   font-weight: bold
-  &--1
-    bottom: 106px
-    left: 150px
-  &--2
-    flex-direction: column
-    left: 78px
-    bottom: 1px
-    .text
-      left: -60px
-      top: 30px
-  &--3
-    bottom: 250px
-    left: 30px
+  cursor: pointer
 
 .number
   position: relative
   display: flex
+  font-family: $noto-sans
 
 .text
   position: absolute
@@ -72,8 +66,9 @@ export default {
   font-weight: bold
   font-size: 13px
   width: 132px
+  line-height: 1.31
   top: 0
-  left: 30px
+  left: 22px
 
 .active
   box-shadow: 0 0 8px 0 #009fc1
@@ -81,4 +76,5 @@ export default {
   background: linear-gradient(143deg, #383c3d, #009fc1)
   font-size: 12px
   opacity: unset
+  pointer-events: none
 </style>

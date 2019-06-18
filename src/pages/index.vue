@@ -1,15 +1,12 @@
 <template lang="pug">
-
-  .app
-    app
-
+  home-index
 </template>
 
 <script>
-import App from '../components/App'
+import HomeIndex from '@/components/Home/HomeIndex'
 export default {
   name: 'Index',
-  components: { App }
+  components: { HomeIndex }
 }
 </script>
 

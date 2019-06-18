@@ -13,37 +13,40 @@
 </template>
 
 <script>
-    export default {
-        data () {
-          return {
-            hasFocus: false,
-          }
-        },
-        name: "BlockInput",
-        props: {
-          label: {
-            type: String,
-            default: ''
-          },
-          value: {
-            type: String,
-            default: ''
-          }
-        },
-      computed: {
-          inputValue: {
-            get () {
-              return this.value
-            },
-            set (value) {
-              this.$emit('input', value)
-            }
-          },
-        }
+export default {
+  name: 'BlockInput',
+  props: {
+    label: {
+      type: String,
+      default: ''
+    },
+    value: {
+      type: String,
+      default: ''
+    }
+  },
+  data () {
+    return {
+      hasFocus: false
+    }
+  },
+  computed: {
+    inputValue: {
+      get () {
+        return this.value
+      },
+      set (value) {
+        this.$emit('input', value)
       }
+    }
+  }
+}
 </script>
 
 <style lang="sass" scoped>
+  @import '../../../../node_modules/bootstrap/scss/functions'
+  @import '../../../../node_modules/bootstrap/scss/variables'
+  @import '../../../../node_modules/bootstrap/scss/mixins/breakpoints'
   @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&subset=cyrillic,cyrillic-ext,latin-ext,vietnamese')
   $font: Montserrat, Helvetica, sans-serif
 
@@ -66,6 +69,8 @@
       border: none
       height: 40px
       border-bottom: solid 1px gray
+      +media-breakpoint-down(xs)
+        width: 272px
       &:focus::placeholder
         color: transparent
       width: 344px
@@ -74,8 +79,5 @@
 
   .active
     border-color: #009fc1
-
-
-
 
 </style>

@@ -2,7 +2,7 @@
 
   .successfully-sent
     .successfully-sent__picture
-      img(src="../../../assets/contacts-images/fly-container.svg")
+      img(src='~/assets/Picture/contacts-images/fly-container.svg')
     .successfully-sent__message
       | Nous avons reçu votre demande
     .successfully-sent__consideration
@@ -11,9 +11,15 @@
 </template>
 
 <script>
-    export default {
-        name: "SuccessfullySent"
+export default {
+  name: 'SuccessfullySent',
+  props: {
+    successSend: {
+      type: Boolean,
+      default: true
     }
+  }
+}
 </script>
 
 <style lang="sass" scoped>
@@ -27,8 +33,9 @@
     text-align: center
     display: flex
     flex-direction: column
-    margin: 236px 0 0 100px
     width: 436px
+    &__picture
+      margin-top: 24px
     &__message
       font-size: 32px
       line-height: 1.41
@@ -38,8 +45,5 @@
       font-size: 16px
       line-height: 1.5
       margin-top: 8px
-
-
-
 
 </style>
