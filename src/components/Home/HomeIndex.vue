@@ -29,10 +29,10 @@ $font: Montserrat, Helvetica, sans-serif
 .advantages
   height: 100%
   background-image: linear-gradient(to bottom, #02343e, #001317)
-  clip-path: polygon(50% 4%, 100% 0, 100% 95%, 50% 100%, 0% 95%, 0 0)
+  clip-path: polygon(50% 5%, 100% 0%, 100% 95%, 50% 100%, 0% 95%, 0 0)
+  margin-top: 80px
 
   +media-breakpoint-down(sm)
-    clip-path: polygon(0 0, 100% 1.5%, 100% 98.5%, 0 100%)
-  margin-top: 193px
+    clip-path: polygon(0 0, 100% 0.7%, 100% 99.3%, 0 100%)
 
 </style>

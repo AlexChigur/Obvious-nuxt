@@ -68,7 +68,7 @@ $font: Montserrat, Helvetica, sans-serif
     resize: none
     width: 344px
     height: 80px
-    margin-top: 9px
+    margin-top: 15px
     outline: none
 
     &:focus::placeholder

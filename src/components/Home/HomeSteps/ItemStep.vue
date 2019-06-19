@@ -106,7 +106,7 @@ img
   border: 1px #009fc1
   border-style: none none solid none
   justify-content: space-between
-  margin-top: 68px
+  margin-top: 63px
   font-family: $font
   font-size: 12px
   font-weight: bold
@@ -157,7 +157,7 @@ img
     display: flex
     font-size: 16px
     line-height: 1.5
-    margin-top: 12px
+    margin-top: 16px
     &__bullet
       transform: translateX(-8px)
 

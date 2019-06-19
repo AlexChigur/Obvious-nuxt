@@ -197,6 +197,7 @@ $font: Montserrat, Helvetica, sans-serif
     width: 336px
     height: 48px
     background-color: gray
+    transition: 2s ease
     &__text
       margin-left: 32px
     &__arrow
@@ -213,7 +214,7 @@ $font: Montserrat, Helvetica, sans-serif
     transition: 1s ease
   &:hover
     img
-      transform: translateX(40px)
+      transform: translateX(25px)
       transition: 1s
 
 </style>

@@ -120,6 +120,7 @@ $font: Montserrat, Helvetica, sans-serif
   margin-top: 88px
   +media-breakpoint-down(xs)
     font-size: 24px
+    margin-top: 80px
 
 .block-steps
   display: flex
@@ -140,15 +141,18 @@ $font: Montserrat, Helvetica, sans-serif
   font-size: 16px
   color: white
   line-height: 1.5
-  margin-bottom: 150px
+  margin-bottom: 132px
   +media-breakpoint-down(md)
     align-items: center
     justify-items: center
     width: 272px
   +media-breakpoint-down(xs)
     text-align: center
+    margin-bottom: 75px
   &__logo
-    margin-top: 116px
+    margin-top: 84px
+    +media-breakpoint-down(xs)
+      margin-top: 48px
 
   &__title
     font-weight: bold

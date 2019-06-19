@@ -8,7 +8,7 @@
         .base-header-container__button__text
           | CONTACTEZ-NOUS
     .base-header-title
-      | Booster votre projet innovant
+      | Boostez votre projet innovant
       br
       | avec un partenaire
     .block-particles
@@ -36,9 +36,10 @@ $font: Montserrat, Helvetica, sans-serif
   display: flex
   flex-direction: column
   align-items: center
+  margin-top: 32px
 
 .base-header-container
-  margin-top: 32px
+
   display: flex
   align-items: center
   justify-content: space-between
@@ -54,9 +55,10 @@ $font: Montserrat, Helvetica, sans-serif
     justify-content: space-between
   &__logo img
     +media-breakpoint-down(sm)
-      width: 149px
+      max-width: 150px
     +media-breakpoint-down(xs)
-      width: 150px
+      max-width: 100px
+      transform: translateX(-10px)
   &__button
     background-color: #009fc1
     border-radius: 2px
@@ -66,11 +68,15 @@ $font: Montserrat, Helvetica, sans-serif
     align-items: center
     justify-content: center
     +media-breakpoint-down(sm)
-      width: 149px
+      max-width: 149px
     cursor: pointer
     text-decoration: none
     +media-breakpoint-down(xs)
-      width: 100px
+      min-width: 149px
+      max-height: 32px
+      transform: translateY(8px)
+      margin-left: 30px
+
     &__text
       color: #ffffff
       +media-breakpoint-down(sm)
@@ -85,13 +91,18 @@ $font: Montserrat, Helvetica, sans-serif
   color: #009fc1
   width: 896px
   margin-top: 113px
+  margin-bottom: 101px
   +media-breakpoint-down(md)
     max-width: 700px
   +media-breakpoint-down(sm)
-    margin: 72px 24px 0 46px
+    max-width: 400px
+    font-size: 32px
+  +media-breakpoint-down(xs)
     width: 250px
     text-align: left
     font-size: 28px
+    margin: 72px 10px 0 0
+    line-height: normal
 
 .block-particles
   width: 833px

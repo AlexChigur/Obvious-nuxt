@@ -12,7 +12,7 @@
           .advantage-block-item__content__advantage {{ advantage.content}}
     .advantage-block-footer
       .advantage-block-footer__content
-        | Comment s’y prendre ?
+        | COMMENT S’Y PRENDRE ?
       .advantage-block-footer__logo
         img(src='~/assets/picture/scroll-down.svg')
 
@@ -81,6 +81,7 @@ $font: Montserrat, Helvetica, sans-serif
     width: 266px
     font-size: 24px
     margin-bottom: 30px
+    margin-top: 72px
 
 .advantage-block-main
   display: flex
@@ -120,6 +121,7 @@ $font: Montserrat, Helvetica, sans-serif
       transform: translateX(4px) translateY(2px)
 
     img
+      transform: translateY(-6px) translateX(3px)
       +media-breakpoint-down(sm)
         transform: translateY(12px) translateX(15px)
 
@@ -175,7 +177,9 @@ $font: Montserrat, Helvetica, sans-serif
   display: flex
   flex-direction: column
   align-items: center
-  margin-top: 88px
+  margin-top: 22px
+  +media-breakpoint-down(xs)
+    margin-top: 49px
   &__content
     font-family: $font
     font-size: 14px

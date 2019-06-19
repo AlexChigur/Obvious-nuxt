@@ -60,13 +60,15 @@ $font: Montserrat, Helvetica, sans-serif
   background-image: linear-gradient(to bottom, #02343e, #001317)
   height: 100%
   border-top: white solid 2px
+
   &__poligon
-    clip-path: polygon(50% 100%, 100% 10%, 100% 0, 0 0, 0 10%)
+    clip-path: polygon(50% 100%, 100% 0.5%, 100% 0, 0 0, 0 0.5%)
     height: 100px
     width: 100%
     background-color: white
+    transform: translateY(-2px)
     +media-breakpoint-down(md)
-      clip-path: polygon(50% 78%, 100% 55%, 100% 0, 0 0, 0 100%)
+      clip-path: polygon(50% 90%, 100% 78%, 100% 0, 0 0, 0 100%)
 
 .footer-content
   margin-top: 112px
@@ -77,6 +79,8 @@ $font: Montserrat, Helvetica, sans-serif
   +media-breakpoint-down(md)
     flex-direction: column
     align-items: center
+  +media-breakpoint-down(xs)
+    margin-top: 72px
 
 .block-company
   font-family: $font
@@ -89,9 +93,12 @@ $font: Montserrat, Helvetica, sans-serif
     flex-direction: column
     align-items: center
     text-align: center
+    margin-top: 66px
+
 .block-company-group
   display: flex
   flex-direction: column
+
   &__consulting
     +media-breakpoint-down(xs)
       font-size: 17px
@@ -99,6 +106,8 @@ $font: Montserrat, Helvetica, sans-serif
     align-items: center
     justify-content: center
     width: 272px
+    margin-top: 28px
+
   &__portal
     letter-spacing: 1px
     display: flex
@@ -114,12 +123,15 @@ $font: Montserrat, Helvetica, sans-serif
 
 .block-company-confidentiality
   text-align: right
+  margin-bottom: 32px
   +media-breakpoint-down(sm)
-    margin-top: 81px
+    margin-top: 66px
     text-align: center
+
   &__link
     color: #009fc1
   &__year
-    margin-top: 10px
+    +media-breakpoint-down(sm)
+      margin-top: 8px
 
 </style>
