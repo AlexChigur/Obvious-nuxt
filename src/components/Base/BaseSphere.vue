@@ -1,39 +1,24 @@
 <template lang="pug">
   div
-    .sphere(:class="[{'active': isActive(index)},`sphere--${index + 1}`]" @click="setStep(activeIndex + 1); previousStep")
+    .sphere(:class="[{'active': isActive(index)},`sphere--${index + 1}`]" @click="setStep(index)")
       .number {{index + 1}}
         .text {{item}}
 </template>
 
-<script>
-export default {
-  name: 'BaseSphere',
-  props: {
-    item: {
-      type: String,
-      default: ''
-    },
-    index: {
-      type: Number,
-      default: null
-    },
-    activeIndex: {
-      type: Number,
-      default: null
+<script lang="ts">
+import { Vue, Prop, Component } from 'vue-property-decorator'
+@Component({})
+export default class BaseSphere extends Vue {
+  @Prop() item: string
+  @Prop() index: number
+  @Prop() activeIndex: number
+  isActive (index): boolean {
+    if (index <= this.activeIndex) {
+      return true
     }
-  },
-  methods: {
-    isActive (index) {
-      return this.activeIndex !== null
-        ? index <= this.activeIndex
-        : true
-    },
-    setStep (activeIndex) {
-      this.$emit('setStep', activeIndex)
-    },
-    previousStep () {
-      if (this.index <= this.activeIndex) { return this.activeIndex - 1 }
-    }
+  }
+  setStep (index) {
+    this.$emit('setStep', index)
   }
 }
 </script>
@@ -76,5 +61,4 @@ export default {
   background: linear-gradient(143deg, #383c3d, #009fc1)
   font-size: 12px
   opacity: unset
-  pointer-events: none
 </style>

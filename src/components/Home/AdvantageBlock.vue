@@ -18,39 +18,13 @@
 
 </template>
 
-<script>
-import PictureCost from '~/assets/picture/cost-reduction.svg'
-import PictureRisk from '~/assets/picture/risks.svg'
-import PictureDevelopment from '~/assets/picture/development.svg'
-import PictureInnovation from '~/assets/picture/innovation.svg'
-export default {
-  name: 'AdvantageBlock',
-  data () {
-    return {
-      advantages: [
-        {
-          logo: PictureCost,
-          title: 'Réduction des coûts',
-          content: 'en partageant les coûts de développement'
-        },
-        {
-          logo: PictureRisk,
-          title: 'Partage des risques',
-          content: 'financiers et techniques'
-        },
-        {
-          logo: PictureDevelopment,
-          title: 'Développement accéléré',
-          content: 'en accédant à des ressources additionnelles des expertises complémentaires et de nouveaux marchés potentiels'
-        },
-        {
-          logo: PictureInnovation,
-          title: 'Financement dédié',
-          content: 'À travers les programmes bilatéraux BPI France'
-        }
-      ]
-    }
-  }
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import Advantages, { AdvantageType } from '../../helpers/Advantages'
+
+@Component({})
+export default class AdvantageBlock extends Vue {
+  advantages: AdvantageType[] = Advantages
 }
 </script>
 
@@ -58,8 +32,6 @@ export default {
 @import '../../../node_modules/bootstrap/scss/functions'
 @import '../../../node_modules/bootstrap/scss/variables'
 @import '../../../node_modules/bootstrap/scss/mixins/breakpoints'
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&subset=cyrillic,cyrillic-ext,latin-ext,vietnamese')
-$font: Montserrat, Helvetica, sans-serif
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&subset=cyrillic,cyrillic-ext,latin-ext,vietnamese')
 $font: Montserrat, Helvetica, sans-serif
 

@@ -18,10 +18,11 @@
 
 </template>
 
-<script>
-export default {
-  name: 'BaseHeader'
-}
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component({})
+export default class BaseHeader extends Vue {}
 </script>
 
 <style lang="sass" scoped>

@@ -32,48 +32,23 @@
 
 </template>
 
-<script>
-import BaseSphere from '@/components/Base/BaseSphere'
-export default {
-  name: 'ItemStep',
-  components: { BaseSphere },
-  props: {
-    activeIndex: {
-      type: Number,
-      default: null
-    },
-    step: {
-      type: Object,
-      default () {
-        return {}
-      }
-    },
-    stepsLength: {
-      type: Number,
-      default: null
-    },
-    stepTitle: {
-      type: Array,
-      default () {
-        return []
-      }
-    },
-    nameSteps: {
-      type: Array,
-      default () {
-        return []
-      }
-    }
-  },
-  data () {
-    return {
-      index: 1
-    }
-  },
-  methods: {
-    setStep (activeIndex) {
-      this.$emit('setStep', activeIndex)
-    }
+<script lang="ts">
+import { Component, Vue, Prop } from 'vue-property-decorator'
+import BaseSphere from '@/components/Base/BaseSphere.vue'
+import { StepsType } from '../../../helpers/Steps'
+
+@Component({
+  components: { BaseSphere }
+})
+export default class ItemStep extends Vue {
+  @Prop() activeIndex: number
+  @Prop() step: StepsType
+  @Prop() stepsLength: number
+  @Prop() stepTitle: string[]
+  @Prop() nameSteps: string[]
+  index: number = 1
+  setStep (activeIndex) {
+    this.$emit('setStep', activeIndex)
   }
 }
 </script>

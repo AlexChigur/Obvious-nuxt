@@ -4,7 +4,7 @@
     .our-clients-title
       | Ils nous font confiance
     .our-clients-list
-      .our-clients-list__logo-item(v-for="image in firstImages")
+      .our-clients-list__logo-item(v-for="image in images")
         img(:src='image')
     .border-line
       .border-line__text
@@ -15,34 +15,12 @@
 
 </template>
 
-<script>
-import PictureElinor from '../../assets/picture/client-images/elinor-logo.png'
-import PictureGroup from '../../assets/picture/client-images/group.svg'
-import PictureHrMaps from '../../assets/picture/client-images/hrmaps-logo.png'
-import PictureNexelec from '../../assets/picture/client-images/nexelec-logo.png'
-import PictureNexeya from '../../assets/picture/client-images/nexeya-logo.png'
-import PictureTC from '../../assets/picture/client-images/tc-logo.png'
-import PictureKameleon from '../../assets/picture/client-images/logo-kameleon.png'
-import PictureInvivox from '../../assets/picture/client-images/logo-invivox.png'
-import PictureParticeep from '../../assets/picture/client-images/logo-particeep.png'
-
-export default {
-  name: 'OurClients',
-  data () {
-    return {
-      firstImages: [
-        PictureHrMaps,
-        PictureElinor,
-        PictureNexeya,
-        PictureNexelec,
-        PictureTC,
-        PictureKameleon,
-        PictureInvivox,
-        PictureParticeep,
-        PictureGroup
-      ]
-    }
-  }
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import OurClientsImages, { ImagesType } from '../../helpers/OurClientsImages'
+@Component({})
+export default class OurClients extends Vue {
+  images: ImagesType = OurClientsImages
 }
 </script>
 

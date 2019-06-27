@@ -18,7 +18,6 @@
           :activeIndex="activeIndex"
           :nameSteps="nameSteps"
           @setStep="setStep"
-          @previousStep="previousStep"
           )
     .block-finance.g-container
       .block-finance__logo
@@ -32,69 +31,34 @@
 
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import ItemStep from '@/components/Home/HomeSteps/ItemStep.vue'
+import Vortex from '@/components/Home/HomeSteps/Vortex.vue'
+import Steps from '@/helpers/Steps'
+import Finances from '@/helpers/Finances'
+import { StepsType } from '../../../helpers/Steps'
+import { FinanceType } from '../../../helpers/Finances'
 
-import ItemStep from '@/components/Home/HomeSteps/ItemStep'
-import Vortex from '@/components/Home/HomeSteps/Vortex'
-export default {
-  name: 'HomeSteps',
-  components: { Vortex, ItemStep },
-  data () {
-    return {
-      activeIndex: 0,
-      stepsLength: 0,
-      steps: [
-        {
-          title: 'Analyse et initialisation de la collaboration',
-          message:
-                [
-                  'Analyse et définition des besoins: positionnement stratégique, périmètre fonctionnel, choix technologique',
-                  'Accompagnement dans la recherche du partenaire idéal en Russie',
-                  'Aide à la sélection du partenaire'
-                ]
-        },
-        {
-          title: 'Co-développement',
-          message:
-                [
-                  'Négociation et contractualisation avec le partenaire (chiffrage, propriété intellectuelle, et assistance juridique)',
-                  'Lancement et suivi du projet: méthodologie et support pour les équipes, reporting consolidé'
-                ]
-        },
-        {
-          title: 'Déploiement commercial',
-          message:
-                [
-                  'Sélection d’un intégrateur / distributeur',
-                  'Montage d’un accord commercial (JV, filiale, autre)',
-                  'Financement et investissement'
-                ]
-        }
-      ],
-      finance: {
-        title: 'Financement du projet collaboratif',
-        content: 'Tout au long du projet, nous montons les dossiers permettant de financer le projet collaboratif',
-        list: [
-          'Aide au Partenariat Technologique',
-          'Aide pour le Développement de l’Innovation en Collaboration Internationale',
-          'Assurance Prospection',
-          'Prêt pour l’export et l’internationalisation'
-        ]
-      },
-      nameSteps: ['Analyse', 'Co-développement', 'Déploiement']
-    }
-  },
-  computed: {
-    titles () {
-      return this.steps.map(step => {
-        return step.title
-      })
-    }
-  },
-  methods: {
-    setStep (activeIndex) {
-      this.activeIndex = activeIndex
-    }
+@Component({
+  components: {
+    ItemStep,
+    Vortex
+  }
+})
+export default class HomeSteps extends Vue {
+  activeIndex: number = 0
+  stepsLength: number = 0
+  steps: StepsType[] = Steps
+  finance: FinanceType = Finances
+  nameSteps: string[] = ['Analyse', 'Co-développement', 'Déploiement']
+  get titles (): string[] {
+    return this.steps.map(step => {
+      return step.title
+    })
+  }
+  setStep (activeIndex) {
+    this.activeIndex = activeIndex
   }
 }
 

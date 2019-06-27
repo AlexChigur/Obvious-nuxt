@@ -10,15 +10,12 @@
 
 </template>
 
-<script>
-export default {
-  name: 'SuccessfullySent',
-  props: {
-    successSend: {
-      type: Boolean,
-      default: true
-    }
-  }
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator'
+
+@Component({})
+export default class SuccessfullySent extends Vue {
+  @Prop({ default: true }) successSend: boolean
 }
 </script>
 

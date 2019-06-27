@@ -22,7 +22,7 @@
       placeholder="Message"
       )
     .sending-checkbox
-      .sending-checkbox__custom(@click="Check")
+      .sending-checkbox__custom(@click="check")
         .sending-checkbox__custom__checked(v-if='checked')
           | &#10004
       .sending-checkbox__agreement
@@ -41,54 +41,42 @@
 
 </template>
 
-<script>
-import BlockInput from './BlockInput'
-import TextArea from '@/components/Base/BaseFooter/TextArea'
+<script lang="ts">
+import BlockInput from './BlockInput.vue'
+import TextArea from '@/components/Base/BaseFooter/TextArea.vue'
 import { emailCheckRegex } from '@/helpers/strings'
+import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Form } from '../../../helpers/TypesForm'
 
 const nameCheckRegex = /[a-zA-Z-\s]/
-
-export default {
-  name: 'SendingForm',
-  components: { TextArea, BlockInput },
-  props: {
-    sendMessage: {
-      type: Boolean,
-      default: true
+@Component({
+  components: {
+    BlockInput,
+    TextArea
+  }
+})
+export default class SendingForm extends Vue {
+  @Prop({ default: true }) sendMessage: boolean
+  disabledButton: boolean = true
+  hasFocus: boolean = true
+  checked: boolean = false
+  form: Form = new Form()
+  get isValidEmail () {
+    return emailCheckRegex.test(this.form.email)
+  }
+  get isValidName () {
+    return nameCheckRegex.test(this.form.name)
+  }
+  get validForm () {
+    if (this.isValidEmail && this.checked && this.isValidName && this.form.message) {
+      return true
     }
-  },
-  data () {
-    return {
-      disabledButton: true,
-      hasFocus: true,
-      checked: false,
-      form: {
-        name: '',
-        email: '',
-        message: ''
-      }
-    }
-  },
-  computed: {
-    isValidEmail () {
-      return emailCheckRegex.test(this.form.email)
-    },
-    isValidName () {
-      return nameCheckRegex.test(this.form.name)
-    },
-    validForm () {
-      if (this.isValidEmail && this.checked && this.isValidName && this.form.message) {
-        return true
-      }
-    }
-  },
-  methods: {
-    Check () {
-      this.checked = !this.checked
-    },
-    successSend () {
-      this.$emit('successSend')
-    }
+  }
+  check () {
+    this.checked = !this.checked
+  }
+  successSend () {
+    this.$emit('successSend')
   }
 }
 </script>

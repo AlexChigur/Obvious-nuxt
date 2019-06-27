@@ -28,22 +28,23 @@
 
 </template>
 
-<script>
-import SendingForm from '@/components/Base/BaseFooter/SendingForm'
-import FooterContacts from '@/components/Base/BaseFooter/FooterContacts'
-import SuccessfullySent from '@/components/Base/BaseFooter/SuccessfullySent'
-export default {
-  name: 'BaseFooter',
-  components: { SuccessfullySent, FooterContacts, SendingForm },
-  data () {
-    return {
-      sendMessage: true
-    }
-  },
-  methods: {
-    successSend () {
-      this.sendMessage = !this.sendMessage
-    }
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import SendingForm from '@/components/Base/BaseFooter/SendingForm.vue'
+import FooterContacts from '@/components/Base/BaseFooter/FooterContacts.vue'
+import SuccessfullySent from '@/components/Base/BaseFooter/SuccessfullySent.vue'
+
+@Component({
+  components: {
+    SendingForm,
+    FooterContacts,
+    SuccessfullySent
+  }
+})
+export default class BaseFooter extends Vue {
+  sendMessage: boolean = true
+  successSend () {
+    this.sendMessage = !this.sendMessage
   }
 }
 </script>

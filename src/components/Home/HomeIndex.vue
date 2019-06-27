@@ -8,14 +8,19 @@
 
 </template>
 
-<script>
-import AdvantageBlock from './AdvantageBlock'
-import HomeSteps from '@/components/Home/HomeSteps/HomeSteps'
-import OurClients from '@/components/Home/OurClients'
-export default {
-  name: 'HomeIndex',
-  components: { OurClients, HomeSteps, AdvantageBlock }
-}
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import AdvantageBlock from './AdvantageBlock.vue'
+import HomeSteps from '@/components/Home/HomeSteps/HomeSteps.vue'
+import OurClients from '@/components/Home/OurClients.vue'
+  @Component({
+    components: {
+      OurClients,
+      HomeSteps,
+      AdvantageBlock
+    }
+  })
+export default class HomeIndex extends Vue {}
 </script>
 
 <style lang="sass" scoped>

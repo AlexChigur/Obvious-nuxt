@@ -8,35 +8,21 @@
         :index="index"
         :active-index="activeIndex"
         @setStep="setStep"
-        @previousStep="previousStep"
       )
 
 </template>
 
-<script>
-import BaseSphere from '@/components/Base/BaseSphere'
-export default {
-  name: 'Vortex',
-  components: { BaseSphere },
-  props: {
-    activeIndex: {
-      type: Number,
-      default: 0
-    },
-    nameSteps: {
-      type: Array,
-      default () {
-        return []
-      }
-    }
-  },
-  methods: {
-    setStep (activeIndex) {
-      this.$emit('setStep', activeIndex)
-    },
-    previousStep (activeIndex) {
-      this.$emit('previousStep', activeIndex)
-    }
+<script lang="ts">
+import { Component, Vue, Prop } from 'vue-property-decorator'
+import BaseSphere from '@/components/Base/BaseSphere.vue'
+  @Component({
+    components: { BaseSphere }
+  })
+export default class Vortex extends Vue {
+  @Prop() activeIndex: number
+  @Prop() nameSteps: string[]
+  setStep (activeIndex) {
+    this.$emit('setStep', activeIndex)
   }
 }
 </script>

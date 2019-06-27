@@ -12,33 +12,19 @@
 
 </template>
 
-<script>
-export default {
-  name: 'BlockInput',
-  props: {
-    label: {
-      type: String,
-      default: ''
-    },
-    value: {
-      type: String,
-      default: ''
-    }
-  },
-  data () {
-    return {
-      hasFocus: false
-    }
-  },
-  computed: {
-    inputValue: {
-      get () {
-        return this.value
-      },
-      set (value) {
-        this.$emit('input', value)
-      }
-    }
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator'
+
+@Component({})
+export default class BlockInput extends Vue {
+  @Prop() label: string
+  @Prop() value: string
+  hasFocus: boolean = false
+  get inputValue (): string {
+    return this.value
+  }
+  set inputValue (value) {
+    this.$emit('input', value)
   }
 }
 </script>
